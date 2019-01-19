@@ -4,7 +4,6 @@
 <head>
   <meta charset="UTF-8">
   <title>Friend Finder</title>
-  <!-- Latest compiled and minified CSS & JS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="https://code.jquery.com/jquery.js"></script>
@@ -154,10 +153,8 @@
     <div class="card-header">
 <div><a href="/api/friends">See All Friends </a>|<a href="https://github.com/dsc1996/FriendFinder.git"> Github Repo</a></div>
 </div>
- <!-- Modal -->
  <div id="resultsModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
-        <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -174,16 +171,11 @@
     </div>
 </div>
 
-<!-- <script
-	  src="https://code.jquery.com/jquery-3.2.1.min.js"
-	  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-      crossorigin="anonymous"></script> -->
 </body>
 </html>
 <script type="text/javascript">
 	$("#submit").on("click", function(event) {
 		event.preventDefault();
-		// Form validation
 		var valid = true;
 		if($("#name").val() === "" || $("#photo").val() === "") {
 			valid = false;
@@ -208,15 +200,13 @@
 				]
 			};
 			var currentURL = window.location.origin;
-			// Ajax call for receiving response after POST req
 			$.post(currentURL + "/api/friends", newUser, function(data) {
 				$("#matchName").text(data.name);
 				$("#matchImg").attr("src", data.photo);
 				$("#resultsModal").modal("toggle");
 			});
 		} else {
-			// If a required field is missing, show alert
-			alert("Survey is incomplete!");
+			alert("Please complete the survey!");
 		}
 	});
 </script>
